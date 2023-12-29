@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'logo.bmp' %}">
+</head>
+<body>
+    <nav>
+     	<a href="#">Setup</a>
+    	<a href="#">Database</a>
+    	<a href="#">Tools</a>
+    	<a href="#">Reports</a>
+    	<div class="dropdown">
+            <a href="#">Administration</a>
+            <div class="dropdown-content">
+                <a href="#">Data Manager</a>
+                <a href="#">Options</a>
+                <a href="#">About</a>
+            </div>
+    	</div>
+    	<div class="dropdown">
+            <a href="#">Miscellaneous</a>
+            <div class="dropdown-content">
+                <a href="{% url 'dm' %}">Data Manager</a>
+                <a href="{% url 'options' %}">Options</a>
+                <a href="{% url 'about' %}">About</a>
+            </div>
+     	</div>
+    </nav>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
